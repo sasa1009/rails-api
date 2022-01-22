@@ -4,4 +4,6 @@ class Article < ApplicationRecord
   validates :slug,
     presence: true,
     uniqueness: { case_sensitive: false }
+
+  scope :recent, -> { order(created_at: :desc) }
 end
